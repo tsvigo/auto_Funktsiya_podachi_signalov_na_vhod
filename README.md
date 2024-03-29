@@ -1,0 +1,1 @@
+# auto_Funktsiya_podachi_signalov_na_vhod
