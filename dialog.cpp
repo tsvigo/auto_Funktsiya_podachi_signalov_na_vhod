@@ -27,7 +27,7 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   ui->setupUi(this);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Теперь это надо в цикле файлы с 4 по 1452
-    for (int var = 4; var < 1452; ++var)
+    for (int var = 1; var < 356; ++var)
     {
   ui->textEdit->clear();
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,7 +37,8 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   //  for (int var = 3; var < 1452; ++var)
   //  {
 //  int var = 3;
-  Nazvaniye_fayla_s_bmp="/mnt/247E7EDA7E7EA3E8/картинки/RandomCrosswords/"+QString::number(var);
+  Nazvaniye_fayla_s_bmp=
+  "/mnt/97d838cf-b3a1-4c1d-9c9d-cf745cf3116a/загрузки/imageye2/vihod/black-white/"+QString::number(var)+".bmp";
                               //  } 
                               
                                   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,15 +79,15 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   /// 
   struct stat fileInfo; 
   /// 
-  QDirIterator it("/home/viktor/Изображения/edinitsi/Sgenerirovannye_fayly",
+  QDirIterator it("/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/",
                   QDirIterator::NoIteratorFlags
                   //  QDirIterator::Subdirectories
                   );
   while (it.hasNext()) {
       QString dir = it.next();
       // qDebug()
-      if (dir.toStdString()!="/home/viktor/Изображения/edinitsi/Sgenerirovannye_fayly/." &&
-          dir.toStdString()!="/home/viktor/Изображения/edinitsi/Sgenerirovannye_fayly/..")
+      if (dir.toStdString()!="/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/." &&
+          dir.toStdString()!="/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/..")
       {
           // std::cout     << dir.toStdString()<< endl;
           if (stat(dir.toStdString().c_str(), &fileInfo) != 0) {  // Use stat( ) to get the info
@@ -144,14 +145,14 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
 // Куда записать файл с нейронами и сигналами txt
   // в папке /home/viktor/Изображения/edinitsi/Sgenerirovannye_fayly/ надо создать новую папку типа "2-r"; 2
   // сконструируем имя папки
-  QString imia_papki= QString::number(var)+"-r";
+  QString imia_papki= QString::number(var);
 // теперь надо созать эту папку
-  QDir().mkdir("/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/"+imia_papki);
+  QDir().mkdir("/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji/"+imia_papki);
 // и создать в этой папке файл neurons_and_signal.txt
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-  QString fname = "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/"+imia_papki+"/neurons_and_signal.txt";
+  QString fname = "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji/"+imia_papki+"/neurons_and_signal.txt";
   QFile file(fname);
   if (file.open(QIODevice::WriteOnly | QIODevice::Append)) {
     //  file.write("blablabla");
