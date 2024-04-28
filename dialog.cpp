@@ -74,40 +74,42 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   ///// автоматически определяем новейший файл /
   ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  long long sekundi=0;
-  QString noveyshiy_katalog;
-  /// 
-  struct stat fileInfo; 
-  /// 
-  QDirIterator it("/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/",
-                  QDirIterator::NoIteratorFlags
-                  //  QDirIterator::Subdirectories
-                  );
-  while (it.hasNext()) {
-      QString dir = it.next();
-      // qDebug()
-      if (dir.toStdString()!="/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/." &&
-          dir.toStdString()!="/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/..")
-      {
-          // std::cout     << dir.toStdString()<< endl;
-          if (stat(dir.toStdString().c_str(), &fileInfo) != 0) {  // Use stat( ) to get the info
-              std::cerr << "Error: " << strerror(errno) << '\n';
-              //   return(EXIT_FAILURE);
-          }
-          //  std::cout <<  "Прошло секунд эпохи Unix до создания каталога     : " << fileInfo.st_ctime << endl;
+//  long long sekundi=0;
+//  QString noveyshiy_katalog;
+//  /// 
+//  struct stat fileInfo; 
+//  /// 
+//  QDirIterator it("/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/",
+//                  QDirIterator::NoIteratorFlags
+//                  //  QDirIterator::Subdirectories
+//                  );
+//  while (it.hasNext()) {
+//      QString dir = it.next();
+//      // qDebug()
+//      if (dir.toStdString()!="/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/." &&
+//          dir.toStdString()!="/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/..")
+//      {
+//          // std::cout     << dir.toStdString()<< endl;
+//          if (stat(dir.toStdString().c_str(), &fileInfo) != 0) {  // Use stat( ) to get the info
+//              std::cerr << "Error: " << strerror(errno) << '\n';
+//              //   return(EXIT_FAILURE);
+//          }
+//          //  std::cout <<  "Прошло секунд эпохи Unix до создания каталога     : " << fileInfo.st_ctime << endl;
           
-          if (fileInfo.st_ctime >sekundi)
-          {
-              noveyshiy_katalog=dir.toStdString().c_str();
-              sekundi=fileInfo.st_ctime ;
-          }
-      }
+//          if (fileInfo.st_ctime >sekundi)
+//          {
+//              noveyshiy_katalog=dir.toStdString().c_str();
+//              sekundi=fileInfo.st_ctime ;
+//          }
+//      }
       
       
-  }
-  std::cout << "Новейший каталог: "<< noveyshiy_katalog.toStdString ()<<"; время создания: "<< sekundi<<endl;
+//  }
+//  std::cout << "Новейший каталог: "<< noveyshiy_katalog.toStdString ()<<"; время создания: "<< sekundi<<endl;
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  Nazvaniye_fayla_s_neyronami_i_signalom=noveyshiy_katalog+"/neurons_and_signal.txt";
+ // Nazvaniye_fayla_s_neyronami_i_signalom=noveyshiy_katalog+"/neurons_and_signal.txt";
+  Nazvaniye_fayla_s_neyronami_i_signalom= "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/-adobe-avant garde gothic-book-o-normal--0-0-0-0-p-0-iso8859-1.bmp/neurons_and_signal.txt";
+  // здесь надо произвольный взять только с существующим решающим 200 нейроном.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                            
