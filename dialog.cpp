@@ -27,7 +27,7 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   ui->setupUi(this);
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /// Теперь это надо в цикле файлы с 4 по 1452
-    for (int var = 1; var < 356; ++var)
+    for (int var = 1; var < 117; ++var)
     {
   ui->textEdit->clear();
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -38,7 +38,7 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   //  {
 //  int var = 3;
   Nazvaniye_fayla_s_bmp=
-  "/mnt/97d838cf-b3a1-4c1d-9c9d-cf745cf3116a/загрузки/imageye2/vihod/black-white/"+QString::number(var)+".bmp";
+  "/home/viktor/Загрузки/imageye2/scale_peyzaji/black-white/"+QString::number(var)+".bmp";
                               //  } 
                               
                                   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -108,7 +108,9 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
 //  std::cout << "Новейший каталог: "<< noveyshiy_katalog.toStdString ()<<"; время создания: "<< sekundi<<endl;
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
  // Nazvaniye_fayla_s_neyronami_i_signalom=noveyshiy_katalog+"/neurons_and_signal.txt";
-  Nazvaniye_fayla_s_neyronami_i_signalom= "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/-adobe-avant garde gothic-book-o-normal--0-0-0-0-p-0-iso8859-1.bmp/neurons_and_signal.txt";
+  Nazvaniye_fayla_s_neyronami_i_signalom= 
+//  "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/Edinitsy_iz_shriftov_posle_pereustanovki_Debiana/-adobe-avant garde gothic-book-o-normal--0-0-0-0-p-0-iso8859-1.bmp/neurons_and_signal.txt";
+   "/home/viktor/my_projects_qt_2/zapolnenie_nejronov_sluchajnymi_nachalnymi_zaryadami_4/neyroni.txt";
   // здесь надо произвольный взять только с существующим решающим 200 нейроном.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                                            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -149,12 +151,12 @@ Dialog::Dialog(QWidget *parent) : QDialog(parent), ui(new Ui::Dialog) {
   // сконструируем имя папки
   QString imia_papki= QString::number(var);
 // теперь надо созать эту папку
-  QDir().mkdir("/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji/"+imia_papki);
+  QDir().mkdir("/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji_2/"+imia_papki);
 // и создать в этой папке файл neurons_and_signal.txt
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-  QString fname = "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji/"+imia_papki+"/neurons_and_signal.txt";
+  QString fname = "/home/viktor/my_projects_qt_2/Sgenerirovannye_fayly/peyzaji_2/"+imia_papki+"/neurons_and_signal.txt";
   QFile file(fname);
   if (file.open(QIODevice::WriteOnly | QIODevice::Append)) {
     //  file.write("blablabla");
